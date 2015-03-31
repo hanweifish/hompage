@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<style>
+  	#well {
+   width: 720px;
+}
+
+h2 {
+   width: 200%;
+  -webkit-animation: slidetounlock 5s infinite;
+}
+
+@-webkit-keyframes slidetounlock {
+  0% {
+    background-position: -720px 0;
+  }
+  100%{
+    background-position: 720px 0;
+  }
+}
+#well {
+  padding: 14px 20px 20px 20px;
+  -webkit-border-radius: 30px;
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #010101),color-stop(1, #181818));
+  border: 2px solid #454545;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 80px;
+  background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: slidetounlock 5s infinite;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  padding: 0;
+  width: 200%;
+}
+
+@-webkit-keyframes slidetounlock {
+  0% {
+    background-position: -720px 0;
+  }
+  100% {
+    background-position: 720px 0;
+  }
+}
+	</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+    $("#slider").draggable({
+        axis: 'x',
+        containment: 'parent',
+        drag: function(event, ui) {
+            if (ui.position.left > 550) {
+                $("#well").fadeOut();
+            } else {
+                // Apparently Safari isn't allowing partial opacity on text with background clip? Not sure.
+                // $("h2 span").css("opacity", 100 - (ui.position.left / 5))
+            }
+        },
+        stop: function(event, ui) {
+            if (ui.position.left < 551) {
+                $(this).animate({
+                    left: 0
+                })
+            }
+        }
+    });
+
+    // The following credit: http://www.evanblack.com/blog/touch-slide-to-unlock/
+
+    $('#slider')[0].addEventListener('touchmove', function(event) {
+        event.preventDefault();
+        var el = event.target;
+        var touch = event.touches[0];
+        curX = touch.pageX - this.offsetLeft - 73;
+        if(curX <= 0) return;
+        if(curX > 550){
+            $('#well').fadeOut();
+        }
+        el.style.webkitTransform = 'translateX(' + curX + 'px)';
+    }, false);
+
+    $('#slider')[0].addEventListener('touchend', function(event) {
+        this.style.webkitTransition = '-webkit-transform 0.3s ease-in';
+        this.addEventListener( 'webkitTransitionEnd', function( event ) { this.style.webkitTransition = 'none'; }, false );
+        this.style.webkitTransform = 'translateX(0px)';
+    }, false);
+
+});
+	</script>
+  </head>
+
+  <body>
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script src='js/slidetounlock.js'></script>
+<h2><img src="images/arrow.png" alt="slider" /> slide to unlock</h2>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wei Han--iWatch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/site.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Wei Han</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-manue"><a href="index.html"> Home </a></li>
+            <li class="navbar-manue"><a href="projects.html"> Projects </a></li>
+            <li class="active navbar-manue"><a href="#"> About me </a></li>
+            <li class="navbar-manue"><a href="contact.html"> Contact </a></li>
+            <li class="navbar-manue-last"><a href="cv.html"> Resume </a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+          <img src="images/sanjose.jpeg" width="100%">
+      </div>
+
+
+      <div class="row">
+        <div class="contact-form">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="col-md-4 contact-form-bg">
+
+            <h3>About</h3>
+            <p class="form-widge">Full Stack Web Developer</p>
+
+
+            <div>
+              <p id="pcontent">You can also find me on:</p>
+
+                <nav class="circular-menu">
+
+                  <div class="circle">
+                    <a href="index.html" class="fa fa-home fa-3x"></a>
+                    <a href="https://www.facebook.com/victor.han.58" target="_blank" class="fa fa-facebook fa-3x"></a>
+                    <a href="https://twitter.com/Hanweifish" target="_blank" class="fa fa-twitter fa-3x"></a>
+                    <a href="http://www.linkedin.com/pub/wei-han/96/961/784/en" target="_blank" class="fa fa-linkedin fa-3x"></a>
+                    <a href="https://github.com/hanweifish" target="_blank" class="fa fa-github fa-3x"></a>
+                    <a href="mailto:hanweihw@gmail.com?subject=Hello Wei" class="fa fa-envelope fa-2x"></a>
+                    <a href="https://www.pinterest.com/hanweihw" target="_blank" class="fa fa-pinterest fa-3x"></a>
+                  </div>
+
+                  <a href="" class="menu-button"><img src="img/wei.jpg"></a>
+
+                </nav>
+            </div>
+
+
+          </div>
+
+
+          <div class="col-md-8 contact-form-bg" >
+            <p><span class="contact-font"><strong>HELLO </strong></span><span class="contact-font-small">welcome to my portfolio.<br></span></span></p>
+            <div class="about_content">
+              I am a Web Developer lived in San Jose. I love Branding, minimal and clear design.I am a passionate graphic designer capable to create creative graphic solutions for any communicational issue.
+            </div>
+              <div class="about_content">
+                 I develop my projects with a strict working methodology, starting with the briefing, the different creative phases until the final artwork. I am demanding with my projects with a strong eye for details.I am also a dynamic team player and a person who loves languages and meeting people from different cultures.
+              </div>
+
+            <div>
+              <div class="about_title">Skills</div>
+              <ul class="about_skill_list">
+                <li>HTML5/CSS3</li>
+                <li>JavaScript/jQuery/AJAX</li>
+                <li>Node.js/Expressjs/Kraken </li>
+                <li>Dustjs/EJS </li>
+                <li>AngularJS/KnockoutJS</li>
+                <li>Bootstrap/Semantic UI/LESS</li>
+                <li>MongoDB/MySQL</li>
+                <li>Python/GAE</li>
+                <li>Django/Jinja2</li>
+                <li>ASP</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+    <footer>
+        <div class="center">
+          <hr>
+          <p class="text-center">© Copyright 2015 Wei Han</p>
+      </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="javascript/bootstrap.min.js"></script>
+    <script>
+      var items = document.querySelectorAll('.circle a');
+
+      for(var i = 0, l = items.length; i < l; i++) {
+        items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+        items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+      }
+
+      document.querySelector('.menu-button').onclick = function(e) {
+         e.preventDefault();
+         document.querySelector('.circle').classList.toggle('open');
+         $("#pcontent").css('visibility', 'hidden');
+      }
+
+    </script>
+  </body>
+</html>
